@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class IndicadorFilmesApplicationService implements IndicadorFilmesService {
     private final ClimaClient climaClient;
-//    private final FilmeCategoriaRepository filmeCategoriaRepository;
+    private final FilmeCategoriaRepository filmeCategoriaRepository;
 //    private final FilmeClient filmeClient;
 
     @Override
@@ -22,7 +22,7 @@ public class IndicadorFilmesApplicationService implements IndicadorFilmesService
         log.info("[start] IndicadorFilmesApplicationService - buscaIndicacoesFilmes");
         log.info("[localizacao] {}", localizacao);
         ClimaDTO clima = climaClient.buscaClima(localizacao);
-//        FilmeCategoria categoria = filmeCategoriaRepository.buscaAtravesTemperatura(clima.getTemperatura());
+        FilmeCategoria categoria = filmeCategoriaRepository.buscaAtravesTemperatura(clima.getTemperatura());
 //        List<FilmeResponse> filmes = filmeClient.buscaAtravesCategoria(categoria);
         log.info("[finish] IndicadorFilmesApplicationService - buscaIndicacoesFilmes");
         return null;

@@ -1,4 +1,4 @@
-package academy.wakanda.indicadorfilmes.filme.apllication.infra;
+package academy.wakanda.indicadorfilmes.filme.infra;
 
 import academy.wakanda.indicadorfilmes.filme.apllication.api.LocalizacaoDTO;
 import academy.wakanda.indicadorfilmes.filme.apllication.service.ClimaClient;
@@ -18,7 +18,6 @@ public class ClimaInfraClient implements ClimaClient {
     @Override
     public ClimaDTO buscaClima(LocalizacaoDTO localizacao) {
         log.info("[start] ClimaInfraClient - buscaClima");
-        log.info("[localizacao] {}", localizacao );
         ClimaDTO climaDTO = climaFeignClient.buscaClima(localizacao.getLatitude(), localizacao.getLongitude(), apiKey, units);
         log.info("[clima] {}", climaDTO );
         log.info("[finish] ClimaInfraClient - buscaClima");

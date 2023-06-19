@@ -1,9 +1,15 @@
-package academy.wakanda.indicadorfilmes.filme.apllication.domain;
+package academy.wakanda.indicadorfilmes.filme.domain;
+
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
+@Getter
+@NoArgsConstructor(access = AccessLevel.PACKAGE)
 public class FilmeCategoria {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
