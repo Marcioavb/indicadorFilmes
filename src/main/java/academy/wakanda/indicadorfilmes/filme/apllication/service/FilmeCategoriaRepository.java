@@ -5,5 +5,6 @@ import academy.wakanda.indicadorfilmes.filme.domain.FilmeCategoria;
 import java.util.Optional;
 
 public interface FilmeCategoriaRepository {
-    Optional<FilmeCategoria> buscaAtravesTemperatura(double temperatura);
+    FilmeCategoria buscaAtravesTemperatura(Double temperatura);
 }
+

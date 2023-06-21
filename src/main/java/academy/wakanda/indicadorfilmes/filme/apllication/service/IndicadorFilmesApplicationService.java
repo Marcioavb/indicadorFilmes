@@ -16,16 +16,16 @@ import java.util.Optional;
 public class IndicadorFilmesApplicationService implements IndicadorFilmesService {
     private final ClimaClient climaClient;
     private final FilmeCategoriaRepository filmeCategoriaRepository;
-//    private final FilmeClient filmeClient;
+    private final FilmeClient filmeClient;
 
     @Override
     public List<FilmeResponse> buscaIndicacoesFilmes(LocalizacaoDTO localizacao) {
         log.info("[start] IndicadorFilmesApplicationService - buscaIndicacoesFilmes");
         log.info("[localizacao] {}", localizacao);
         ClimaDTO clima = climaClient.buscaClima(localizacao);
-        Optional<FilmeCategoria> categoria = filmeCategoriaRepository.buscaAtravesTemperatura(clima.getTemperatura());
+        FilmeCategoria categoria = filmeCategoriaRepository.buscaAtravesTemperatura(clima.getTemperatura());
         log.info("[categoria] {}",categoria);
-//        List<FilmeResponse> filmes = filmeClient.buscaAtravesCategoria(categoria);
+        List<FilmeResponse> filmes = filmeClient.buscaAtravesCategoria(categoria);
         log.info("[finish] IndicadorFilmesApplicationService - buscaIndicacoesFilmes");
         return null;
     }
